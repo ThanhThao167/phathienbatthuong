@@ -67,7 +67,7 @@ if uploaded_score:
 # ===== Phần 2: File Diemtonghoplop.csv =====
 st.header("2️⃣ Xử lý và phát hiện bất thường từ file Diemtonghoplop.csv")
 st.markdown("""
-📌 **Gợi ý:**
+📌 **Hướng dẫn:**
 - File nên bao gồm các cột điểm môn như: `Toan`, `Van`, `Ly`, `Hoa`, `Ngoaingu`, `Su`, `Tin`, `Sinh`, `Dia`
 - Bất thường là học sinh có:
     - **Z-score điểm trung bình > 2**
