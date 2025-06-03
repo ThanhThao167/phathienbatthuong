@@ -10,6 +10,13 @@ st.title("📊 Ứng dụng phát hiện học sinh có điểm bất thường"
 
 # ===== Phần 1: File Studentscore.csv =====
 st.header("1️⃣ Xử lý và phát hiện bất thường từ file Studentscore.csv")
+
+st.markdown("""
+📌 **Hướng dẫn:**
+- File phải có các cột: `MSHS`, `lop`, `TX1`, `TX2`, `TX3`, `GK`, `CK`
+- Các dòng bị thiếu sẽ được điền trung bình theo học sinh.
+- Bất thường được phát hiện dựa trên **Z-score** và độ lệch lớn nhất giữa 1 điểm và trung bình các môn còn lại.
+""")
 uploaded_score = st.file_uploader("📥 Tải lên file Studentscore.csv", type=["csv"], key="score")
 if uploaded_score:
     df_studentscore = pd.read_csv(uploaded_score)
@@ -59,6 +66,14 @@ if uploaded_score:
 
 # ===== Phần 2: File Diemtonghoplop.csv =====
 st.header("2️⃣ Xử lý và phát hiện bất thường từ file Diemtonghoplop.csv")
+st.markdown("""
+📌 **Gợi ý:**
+- File nên bao gồm các cột điểm môn như: `Toan`, `Van`, `Ly`, `Hoa`, `Ngoaingu`, `Su`, `Tin`, `Sinh`, `Dia`
+- Bất thường là học sinh có:
+    - **Z-score điểm trung bình > 2**
+    - hoặc **1 môn lệch hơn 4 điểm** so với phần còn lại.
+""")
+
 uploaded_tonghop = st.file_uploader("📥 Tải lên file Diemtonghoplop.csv", type=["csv"], key="tonghop")
 if uploaded_tonghop:
     df_diem = pd.read_csv(uploaded_tonghop)
